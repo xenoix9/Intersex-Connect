@@ -1,0 +1,731 @@
+/* Mobile View Styles - Optimized for small screens */
+
+/* Ultra-small phones (320px - 480px) */
+@media (max-width: 480px) {
+    /* Global Adjustments */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 10px;
+        margin: 0;
+    }
+
+    /* Header Mobile */
+    header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .logo img {
+        height: 50px;
+        margin-right: 10px;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    nav ul {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+        z-index: 999;
+    }
+
+    nav ul.show {
+        left: 0;
+    }
+
+    nav ul li {
+        margin: 12px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .hamburger {
+        display: block !important;
+        cursor: pointer;
+        font-size: 1.3rem;
+        padding: 5px;
+    }
+
+    /* Sections Mobile */
+    section {
+        padding: 30px 0;
+        margin-top: 60px;
+    }
+
+    section:first-of-type {
+        margin-top: 70px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+        line-height: 1.3;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+    }
+
+    /* Hero Section Mobile */
+    .hero {
+        padding: 80px 0 50px;
+        margin-top: 60px;
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        max-width: 100%;
+        margin: 0 auto 20px;
+    }
+
+    /* Buttons Mobile */
+    .btn {
+        display: inline-block;
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        border-radius: 5px;
+        text-align: center;
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Cards Mobile */
+    .feature-card,
+    .story-card,
+    .community-card,
+    .resource-card,
+    .emergency-card,
+    .campaign-card,
+    .action-card,
+    .option,
+    .discussion,
+    .update {
+        width: 100% !important;
+        margin-bottom: 15px;
+        padding: 15px;
+    }
+
+    .feature-card i,
+    .community-card i,
+    .action-card i {
+        font-size: 2rem;
+        margin-bottom: 12px;
+    }
+
+    /* Community Features Mobile */
+    .container_List {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    .community-card {
+        height: auto;
+    }
+
+    .community-card .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    /* Calendar Mobile */
+    .calendar {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .calendar-weekdays,
+    .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 6px;
+    }
+
+    .calendar-weekday {
+        font-size: 0.75rem;
+        padding: 6px 0;
+        font-weight: 700;
+    }
+
+    .calendar-day {
+        min-height: 45px;
+        font-size: 0.9rem;
+        padding: 8px 4px;
+    }
+
+    /* Forum Discussions Mobile */
+    .discussion-list {
+        margin-top: 15px;
+    }
+
+    .discussion {
+        padding: 15px;
+        margin-bottom: 12px;
+    }
+
+    .discussion h4 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+
+    .meta {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+
+    .excerpt {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .read-more {
+        font-size: 0.9rem;
+    }
+
+    /* Stories Grid Mobile */
+    .stories-grid {
+        flex-direction: column;
+    }
+
+    .story-card {
+        width: 100% !important;
+    }
+
+    .filter-options {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #category-filter {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    /* Peer Support Mobile */
+    .peer-support {
+        padding: 30px 0;
+    }
+
+    .support-options {
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .option {
+        width: 100% !important;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .option h4 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .option p {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+    }
+
+    .option .btn {
+        width: 100%;
+    }
+
+    /* Events Mobile */
+    .event-list .event {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .event-date {
+        margin-right: 0;
+        margin-bottom: 12px;
+        text-align: left;
+    }
+
+    .event-date .day {
+        font-size: 1.5rem;
+    }
+
+    .event-date .month {
+        font-size: 0.75rem;
+    }
+
+    .event-details {
+        flex: 1;
+    }
+
+    .event-details h4 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+
+    .event-details .time {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
+    /* Modal Mobile */
+    .modal-content {
+        width: 95%;
+        max-width: 100%;
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .close-modal {
+        font-size: 1.5rem;
+        width: 28px;
+        height: 28px;
+        top: 10px;
+        right: 10px;
+    }
+
+    /* Form Groups Mobile */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        font-size: 0.95rem;
+        margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .form-group textarea {
+        min-height: 120px;
+    }
+
+    /* Resources Mobile */
+    .tabs {
+        flex-direction: column;
+        border-bottom: none;
+    }
+
+    .tab-btn {
+        padding: 12px 0;
+        border-bottom: 2px solid transparent;
+        width: 100%;
+        text-align: left;
+    }
+
+    .tab-content {
+        padding: 15px 0;
+    }
+
+    /* Footer Mobile */
+    footer {
+        padding: 30px 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    .footer-section h4 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 8px;
+    }
+
+    .social-icons {
+        margin-top: 15px;
+    }
+
+    .social-icons a {
+        margin-right: 12px;
+        font-size: 1.2rem;
+    }
+
+    /* About Page Mobile */
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-text,
+    .about-image {
+        width: 100%;
+    }
+
+    .about-image {
+        margin-top: 15px;
+    }
+
+    .team-members {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .member {
+        width: 100% !important;
+    }
+
+    .member img {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* Page Header Mobile */
+    .page-header {
+        padding: 100px 0 50px;
+        margin-top: 60px;
+    }
+
+    .page-header h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Newsletter Mobile */
+    #newsletter-form {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    #newsletter-form input {
+        border-radius: 5px;
+        margin-bottom: 10px;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    #newsletter-form button {
+        border-radius: 5px;
+        width: 100%;
+        padding: 12px;
+    }
+
+    /* Calendar Nav Mobile */
+    .calendar-nav {
+        margin-bottom: 15px;
+        gap: 10px;
+    }
+
+    .calendar-nav button {
+        padding: 8px 12px;
+        font-size: 1rem;
+    }
+
+    #current-month {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    /* Campaign/Action Cards Mobile */
+    .campaign-list,
+    .action-options,
+    .resource-grid {
+        flex-direction: column;
+    }
+
+    .campaign-card,
+    .action-card,
+    .resource {
+        width: 100% !important;
+    }
+
+    .campaign-card img {
+        height: 150px;
+    }
+
+    /* Progress Bar Mobile */
+    .progress-bar {
+        height: 8px;
+    }
+}
+
+/* Small phones (480px - 576px) */
+@media (min-width: 481px) and (max-width: 576px) {
+    .container {
+        padding: 0 12px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.3rem;
+    }
+
+    .btn {
+        padding: 11px 18px;
+        font-size: 0.95rem;
+    }
+
+    .feature-card,
+    .story-card,
+    .community-card,
+    .resource-card,
+    .campaign-card,
+    .action-card,
+    .option {
+        width: 100%;
+        padding: 18px;
+    }
+
+    .calendar-day {
+        min-height: 50px;
+        font-size: 0.95rem;
+    }
+
+    .event-list .event {
+        flex-direction: column;
+        padding: 18px;
+    }
+
+    .team-members {
+        flex-direction: column;
+    }
+
+    .member {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 92%;
+        padding: 22px;
+    }
+
+    /* Action options for medium mobile */
+    .action-options {
+        flex-direction: column;
+    }
+
+    .action-card {
+        width: 100%;
+    }
+}
+
+/* Touch-friendly targets */
+@media (max-width: 576px) {
+    /* Ensure minimum 44px touch targets */
+    button,
+    a,
+    .btn,
+    input[type="button"],
+    input[type="submit"] {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 10px 12px;
+    }
+
+    /* Better spacing for interactive elements */
+    .hamburger {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Responsive image handling */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* Better text legibility */
+    body {
+        font-size: 15px;
+    }
+
+    /* Prevent horizontal scroll */
+    body, html {
+        overflow-x: hidden;
+    }
+
+    /* Improve form inputs on mobile */
+    input,
+    select,
+    textarea {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select,
+    textarea {
+        border: 1px solid #bdbdbd;
+        border-radius: 5px;
+        padding: 10px;
+        width: 100%;
+        font-family: inherit;
+    }
+
+    /* Improve navigation on mobile */
+    nav ul li a::after {
+        display: none; /* Remove underline animation on mobile */
+    }
+
+    /* Better spacing for mobile cards */
+    .card,
+    .discussion,
+    .story-card,
+    .community-card {
+        margin-bottom: 12px;
+    }
+
+    /* Readable font sizes */
+    .meta {
+        font-size: 0.85rem;
+    }
+
+    .excerpt {
+        font-size: 0.95rem;
+    }
+
+    .read-more {
+        font-size: 0.95rem;
+        padding: 8px 0;
+    }
+
+    /* Better list spacing */
+    ul li {
+        margin-bottom: 8px;
+    }
+
+    /* Optimize header for small screens */
+    header .container {
+        padding: 10px 0;
+    }
+
+    .logo img {
+        height: 45px;
+        margin-right: 8px;
+    }
+
+    .logo h1 {
+        font-size: 1.1rem;
+    }
+
+    /* Better footer on mobile */
+    .footer-bottom {
+        font-size: 0.85rem;
+        padding: 15px 0;
+    }
+
+    /* Improved table readability (if needed) */
+    table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+
+    /* Better spacing for alerts/messages */
+    .highlight {
+        padding: 12px;
+        margin: 12px 0;
+    }
+}
+
+/* Extra small devices (under 320px - fallback) */
+@media (max-width: 320px) {
+    .container {
+        padding: 0 8px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    .logo img {
+        height: 40px;
+        margin-right: 5px;
+    }
+
+    .logo h1 {
+        font-size: 1rem;
+    }
+
+    .calendar-weekday {
+        font-size: 0.65rem;
+    }
+
+    .calendar-day {
+        min-height: 40px;
+        font-size: 0.8rem;
+    }
+}

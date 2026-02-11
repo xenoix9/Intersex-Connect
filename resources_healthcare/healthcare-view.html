@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finding Intersex-Affirming Healthcare Providers | Intersex Connect</title>
+    <style>
+        /* Color scheme from the screenshot */
+        :root {
+            --primary-purple: #8e44ad;
+            --secondary-purple: #7b5ba6;
+            --light-purple: #e6e0f0;
+            --dark-text: #333333;
+            --medium-text: #666666;
+            --light-text: #999999;
+            --white: #ffffff;
+            --border-color: #dddddd;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--dark-text);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-purple);
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--light-purple);
+        }
+        
+        /* Main Content Styles */
+        main {
+            padding: 2rem 0;
+        }
+        
+        .breadcrumb {
+            margin-bottom: 1rem;
+            color: var(--medium-text);
+        }
+        
+        .breadcrumb a {
+            color: var(--secondary-purple);
+            text-decoration: none;
+        }
+        
+        .page-title {
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .page-subtitle {
+            color: var(--medium-text);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .content-section {
+            background-color: var(--light-purple);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            color: var(--primary-purple);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .guide-section {
+            margin-bottom: 2rem;
+        }
+        
+        .guide-section h3 {
+            color: var(--secondary-purple);
+            margin-bottom: 1rem;
+        }
+        
+        .guide-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .resources-list {
+            list-style-type: none;
+            margin-left: 1rem;
+        }
+        
+        .resources-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .resources-list li:before {
+            content: "•";
+            color: var(--secondary-purple);
+            position: absolute;
+            left: 0;
+        }
+        
+        .resources-list a {
+            color: var(--secondary-purple);
+            text-decoration: none;
+        }
+        
+        .resources-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .search-section {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .search-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .form-group {
+            flex: 1 1 200px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-purple);
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .search-button {
+            background-color: var(--secondary-purple);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            align-self: flex-end;
+        }
+        
+        .search-button:hover {
+            background-color: var(--primary-purple);
+        }
+        
+        .results-section {
+            display: none;
+        }
+        
+        .provider-card {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+        
+        .provider-name {
+            color: var(--primary-purple);
+            margin-bottom: 0.5rem;
+        }
+        
+        .provider-specialty {
+            color: var(--secondary-purple);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .provider-location {
+            color: var(--medium-text);
+            margin-bottom: 1rem;
+        }
+        
+        .provider-contact {
+            margin-bottom: 1rem;
+        }
+        
+        .provider-notes {
+            font-style: italic;
+            color: var(--medium-text);
+            border-left: 3px solid var(--light-purple);
+            padding-left: 1rem;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-purple);
+            color: var(--white);
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-section {
+            flex: 1 1 200px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--light-purple);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Back button */
+        .back-button {
+            display: inline-block;
+            background-color: var(--secondary-purple);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            transition: background-color 0.3s;
+        }
+        
+        .back-button:hover {
+            background-color: var(--primary-purple);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .search-form {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class=""> <img src="../images/temp2.jpeg" alt="Intersex Connect Logo" height="70" width="200px"></div>
+                    <h1>Intersex Connect</h1> 
+                    <ul class="nav-links">
+                    <li><a href="../Main_features/index.html">Home</li>
+                    <li><a href="../Main_features/about.html">About</a></li>
+                    <li><a href="../Main_features/stories.html">Stories</a></li>
+                    <li><a href="../Main_features/resources.html">Resources</a></li>
+                    <li><a href="../Main_features/community.html">Community</a></li>
+                    <li><a href="../Main_features/advocacy.html">Advocacy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <a href="../Main_features/resources.html" class="back-button">&larr; Back to Healthcare Resources</a>
+        
+        <h1 class="page-title">Finding Intersex-Affirming Healthcare Providers</h1>
+        <p class="page-subtitle">A guide to locating doctors who understand intersex needs and respect bodily autonomy.</p>
+        
+        <div class="content-section">
+            <h2 class="section-title">Guide to Finding Affirming Healthcare</h2>
+            
+            <div class="guide-section">
+                <h3>Why Affirming Healthcare Matters</h3>
+                <p>Intersex individuals often face medical discrimination, unnecessary procedures, and lack of informed consent in healthcare settings. Finding providers who respect bodily autonomy and understand intersex variations is crucial for receiving appropriate and respectful care.</p>
+            </div>
+            
+            <div class="guide-section">
+                <h3>Key Qualities to Look For</h3>
+                <p>When searching for healthcare providers, look for these important qualities:</p>
+                <ul class="resources-list">
+                    <li>Respect for bodily autonomy and informed consent</li>
+                    <li>Understanding that intersex variations are natural human variations</li>
+                    <li>Willingness to work with intersex adults and parents of intersex children</li>
+                    <li>Commitment to non-pathologizing language and approaches</li>
+                    <li>Knowledge about the potential harms of non-consensual medical interventions</li>
+                </ul>
+            </div>
+            
+            <div class="guide-section">
+                <h3>Questions to Ask Potential Providers</h3>
+                <p>Before choosing a healthcare provider, consider asking these questions:</p>
+                <ul class="resources-list">
+                    <li>What is your experience working with intersex patients?</li>
+                    <li>What is your approach to medical interventions for intersex children?</li>
+                    <li>How do you involve patients in medical decision-making?</li>
+                    <li>Are you familiar with the current standards of care for intersex individuals?</li>
+                    <li>Do you work with mental health professionals who have experience with intersex issues?</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="search-section">
+            <h2 class="section-title">Find Intersex-Affirming Providers</h2>
+            <p>Use the search below to find healthcare providers in your area who have been recommended by the intersex community.</p>
+            
+            <form class="search-form" id="provider-search">
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" placeholder="City, State, or Zip Code">
+                </div>
+                
+                <div class="form-group">
+                    <label for="specialty">Specialty</label>
+                    <select id="specialty">
+                        <option value="">Any Specialty</option>
+                        <option value="endocrinology">Endocrinology</option>
+                        <option value="urology">Urology</option>
+                        <option value="gynecology">Gynecology</option>
+                        <option value="pediatrics">Pediatrics</option>
+                        <option value="mental-health">Mental Health</option>
+                        <option value="primary-care">Primary Care</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="search-button">Search Providers</button>
+            </form>
+            
+            <div class="results-section" id="search-results">
+                <!-- Results will be populated by JavaScript -->
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title">Additional Resources</h2>
+            
+            <div class="guide-section">
+                <h3>Online Directories</h3>
+                <ul class="resources-list">
+                    <li><a href="#">InterACT Provider Directory</a> - A database of healthcare providers recommended by the intersex community</li>
+                    <li><a href="#">GLMA Health Professionals Directory</a> 
+                </ul>
+            </div>
+            
+            <div class="guide-section">
+                <h3>Community Recommendations</h3>
+                <p>Many intersex individuals find the best providers through word-of-mouth recommendations. Consider:</p>
+                <ul class="resources-list">
+                    <li>Asking in intersex community groups and forums</li>
+                    <li>Contacting intersex advocacy organizations for referrals</li>   
+                </ul>
+            </div>
+            
+            <div class="guide-section">
+                <h3>What to Do If You Can't Find an Affirming Provider</h3>
+                <p>If you're having trouble finding an intersex-affirming provider in your area:</p>
+                <ul class="resources-list">
+                    <li>Consider telehealth options with providers in other locations</li>
+                    <li>Look for providers who may not specialize in intersex care but demonstrate openness to learning</li>
+                    <li>Bring educational materials about intersex issues to appointments with new providers</li>
+                    <li>Connect with intersex advocacy organizations for support and guidance</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Intersex Connect</h3>
+                    <p>Providing resources, support, and community for intersex individuals and their allies.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../Main_features/index.html">Home</a></li>
+                        <li><a href="../Main_features/about.html">About Us</a></li>
+                        <li><a href="../Main_features/stories.html">Stories</a></li>
+                        <li><a href="../Main_features/resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="../Main_features/community.html">Community Forum</a></li>
+                        <li><a href="../resources_mental_health/mentalheath.html">Mental Health Resources</a></li>
+                        <li><a href="../resources_legal_rights/LegalRight.html">Legal Rights</a></li>
+                        <li><a href="../Main_features/about.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Intersex Connect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Sample provider data - in a real application, this would come from a database
+        const providers = [
+            {
+                name: "Dr. Maria Rodriguez",
+                specialty: "Endocrinology",
+                location: "New York, NY",
+                phone: "(212) 555-1234",
+                notes: "Specializes in intersex variations and takes a patient-centered approach to care."
+            },
+            {
+                name: "Dr. James Chen",
+                specialty: "Urology",
+                location: "San Francisco, CA",
+                phone: "(415) 555-5678",
+                notes: "Experienced with intersex patients and advocates for informed consent."
+            },
+            {
+                name: "Dr. Sarah Johnson",
+                specialty: "Pediatrics",
+                location: "Chicago, IL",
+                phone: "(312) 555-9012",
+                notes: "Works closely with families of intersex children and respects bodily autonomy."
+            },
+            {
+                name: "Dr. Michael Williams",
+                specialty: "Mental Health",
+                location: "Austin, TX",
+                phone: "(512) 555-3456",
+                notes: "Provides affirming therapy for intersex individuals and their families."
+            },
+            {
+                name: "Dr. Lisa Thompson",
+                specialty: "Gynecology",
+                location: "Seattle, WA",
+                phone: "(206) 555-7890",
+                notes: "Knowledgeable about intersex health issues and uses inclusive language."
+            }
+            
+        ];
+        
+        // Handle search form submission
+        document.getElementById('provider-search').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const location = document.getElementById('location').value.toLowerCase();
+            const specialty = document.getElementById('specialty').value;
+            
+            // Filter providers based on search criteria
+            const filteredProviders = providers.filter(provider => {
+                const matchesLocation = !location || provider.location.toLowerCase().includes(location);
+                const matchesSpecialty = !specialty || provider.specialty === specialty;
+                
+                return matchesLocation && matchesSpecialty;
+            });
+            
+            // Display results
+            displayResults(filteredProviders);
+        });
+        
+        // Function to display search results
+        function displayResults(results) {
+            const resultsContainer = document.getElementById('search-results');
+            
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<p>No providers found matching your criteria. Try broadening your search.</p>';
+            } else {
+                let resultsHTML = '<h3>Found ' + results.length + ' Provider(s)</h3>';
+                
+                results.forEach(provider => {
+                    resultsHTML += `
+                        <div class="provider-card">
+                            <h4 class="provider-name">${provider.name}</h4>
+                            <p class="provider-specialty">${provider.specialty}</p>
+                            <p class="provider-location">${provider.location}</p>
+                            <p class="provider-contact">Phone: ${provider.phone}</p>
+                            <p class="provider-notes">${provider.notes}</p>
+                        </div>
+                    `;
+                });
+                
+                resultsContainer.innerHTML = resultsHTML;
+            }
+            
+            resultsContainer.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

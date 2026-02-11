@@ -1,0 +1,153 @@
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .feature-card,
+    .resource-card,
+    .campaign-card,
+    .action-card {
+        width: calc(50% - 15px);
+    }
+    
+    .about-text {
+        width: 55%;
+    }
+    
+    .about-image {
+        width: 40%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    nav ul {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+    }
+    
+    nav ul.show {
+        left: 0;
+    }
+    
+    nav ul li {
+        margin: 15px 0;
+    }
+    
+    .hero {
+        padding: 120px 0 80px;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .feature-card,
+    .story-card,
+    .community-card,
+    .option,
+    .resource {
+        width: 100%;
+    }
+    
+    .container_List {
+        flex-direction: column;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-text,
+    .about-image {
+        width: 100%;
+    }
+    
+    .about-image {
+        margin-top: 30px;
+    }
+    
+    .member {
+        width: calc(50% - 15px);
+    }
+    
+    .action-card {
+        width: calc(50% - 15px);
+    }
+    
+    .calendar-weekdays,
+    .calendar-grid {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 8px;
+    }
+    
+    .calendar-day {
+        min-height: 50px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    #newsletter-form {
+        flex-direction: column;
+    }
+    
+    #newsletter-form input {
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    
+    #newsletter-form button {
+        border-radius: 5px;
+        width: 100%;
+    }
+    
+    .footer-section {
+        width: 100%;
+    }
+    
+    .member {
+        width: 100%;
+    }
+    
+    .resource-card,
+    .emergency-card,
+    .action-card {
+        width: 100%;
+    }
+    
+    .filter-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    #category-filter {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    
+    .event {
+        flex-direction: column;
+    }
+    
+    .event-date {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+}
