@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Medical Questions | Intersex Connect</title>
+    <style>
+        /* Color scheme from the screenshot */
+        :root {
+            --primary-purple: #8e44ad;
+            --secondary-purple: #7b5ba6;
+            --light-purple: #e6e0f0;
+            --dark-text: #333333;
+            --medium-text: #666666;
+            --light-text: #999999;
+            --white: #ffffff;
+            --border-color: #dddddd;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--dark-text);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-purple);
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--light-purple);
+        }
+        
+        /* Main Content Styles */
+        main {
+            padding: 2rem 0;
+        }
+        
+        .breadcrumb {
+            margin-bottom: 1rem;
+            color: var(--medium-text);
+        }
+        
+        .breadcrumb a {
+            color: var(--secondary-purple);
+            text-decoration: none;
+        }
+        
+        .page-title {
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .page-subtitle {
+            color: var(--medium-text);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .content-section {
+            background-color: var(--light-purple);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            color: var(--primary-purple);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .intro-text {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        /* FAQ Styles */
+        .faq-container {
+            margin-bottom: 2rem;
+        }
+        
+        .faq-category {
+            margin-bottom: 2rem;
+        }
+        
+        .faq-category h3 {
+            color: var(--secondary-purple);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .faq-question:hover {
+            background-color: rgba(122, 91, 166, 0.05);
+        }
+        
+        .faq-icon {
+            color: var(--secondary-purple);
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 1000px;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        /* Resources Section */
+        .resources-list {
+            list-style-type: none;
+        }
+        
+        .resources-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .resources-list li:before {
+            content: "•";
+            color: var(--secondary-purple);
+            position: absolute;
+            left: 0;
+        }
+        
+        .resources-list a {
+            color: var(--secondary-purple);
+            text-decoration: none;
+        }
+        
+        .resources-list a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Back button */
+        .back-button {
+            display: inline-block;
+            background-color: var(--secondary-purple);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            transition: background-color 0.3s;
+        }
+        
+        .back-button:hover {
+            background-color: var(--primary-purple);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-purple);
+            color: var(--white);
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-section {
+            flex: 1 1 200px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--light-purple);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+           
+            <nav>
+                <div class=""> <img src="../images/temp2.jpeg" alt="Intersex Connect Logo" height="70" width="200px"></div>
+                <div class=""><h1>Intersex Connect </h1></div>
+                <ul class="nav-links">
+                    <li><a href="../Main_features/index.html">Home</a></li>
+                    <li><a href="../Main_features/about.html">About</a></li>
+                    <li><a href="../Main_features/stories.html">Stories</a></li>
+                    <li><a href="../Main_features/resources.html">Resources</a></li>
+                    <li><a href="../Main_features/community.html">Community</a></li>
+                    <li><a href="../Main_features/advocacy.html">Advocacy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <a href="../Main_features/resources.html" class="back-button">&larr; Back to Healthcare Resources</a>
+        
+        <h1 class="page-title">Common Medical Questions</h1>
+        <p class="page-subtitle">Answers to frequently asked questions about intersex medical conditions and treatments.</p>
+        
+        <div class="content-section">
+            <div class="intro-text">
+                <p>This resource provides answers to common questions about intersex variations, medical care, and treatments. The information is intended for educational purposes and should not replace consultation with qualified healthcare providers.</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-category">
+                    <h3>Understanding Intersex Variations</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What does "intersex" mean?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Intersex is an umbrella term for people born with physical sex characteristics that don't fit typical binary notions of male or female bodies. These variations can involve chromosomes, gonads, hormones, or genitals. Intersex is about biological variations, not gender identity.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How common are intersex variations?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Intersex variations are more common than many people realize. Estimates suggest that approximately 1.7% of the population is born with intersex traits - that's about the same percentage as people with red hair. Some variations are visible at birth, while others may not become apparent until puberty or later in life.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What are some examples of intersex variations?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>There are many different intersex variations, including:</p>
+                            <ul class="resources-list">
+                                <li>Congenital Adrenal Hyperplasia (CAH)</li>
+                                <li>Androgen Insensitivity Syndrome (AIS)</li>
+                                <li>Klinefelter Syndrome (XXY)</li>
+                                <li>Turner Syndrome (XO)</li>
+                                <li>5-alpha-reductase deficiency</li>
+                                <li>Ovotesticular Differences of Sex Development</li>
+                            </ul>
+                            <p>Each variation has unique characteristics and may require different approaches to medical care.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-category">
+                    <h3>Medical Care & Treatments</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do all intersex variations require medical treatment?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, not all intersex variations require medical intervention. Many intersex people are healthy and don't need any medical treatment. Some variations may require monitoring or treatment for associated health conditions, but being intersex itself is not a medical problem that needs fixing. The focus should be on health and well-being, not on "normalizing" appearance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What are the concerns about early surgeries on intersex children?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Many intersex advocates and human rights organizations oppose non-consensual, medically unnecessary surgeries on intersex children. Concerns include:</p>
+                            <ul class="resources-list">
+                                <li>Irreversible procedures performed before the child can consent</li>
+                                <li>Risk of reduced or lost sexual sensation</li>
+                                <li>Potential for incorrect gender assignment</li>
+                                <li>Psychological trauma from repeated medical examinations and procedures</li>
+                                <li>Violation of bodily autonomy and human rights</li>
+                            </ul>
+                            <p>Many advocate for delaying non-essential procedures until the individual can participate in decision-making.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What is the standard of care for intersex children today?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Medical guidelines are evolving. Many professional organizations now recommend:</p>
+                            <ul class="resources-list">
+                                <li>Deferring non-essential surgeries until the child can participate in decision-making</li>
+                                <li>Comprehensive, interdisciplinary care teams including mental health professionals</li>
+                                <li>Full disclosure and transparency with patients and families</li>
+                                <li>Respect for patient autonomy and bodily integrity</li>
+                                <li>Support for the whole family, including connection with peer support groups</li>
+                            </ul>
+                            <p>However, practices vary widely, and non-consensual surgeries still occur in many places.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What healthcare specialists might an intersex person see?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Depending on their specific variation and needs, an intersex person might work with:</p>
+                            <ul class="resources-list">
+                                <li>Endocrinologists (hormone specialists)</li>
+                                <li>Urologists or gynecologists</li>
+                                <li>Genetic counselors</li>
+                                <li>Mental health professionals</li>
+                                <li>Primary care physicians</li>
+                                <li>Reproductive specialists</li>
+                            </ul>
+                            <p>It's important to find providers who respect bodily autonomy and have experience with intersex variations.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-category">
+                    <h3>Health & Development</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can intersex people have children?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Fertility varies depending on the specific intersex variation. Some intersex people are fertile, while others may have reduced fertility or be infertile. Advances in reproductive technology have created more options for some intersex people who wish to have biological children. It's important to discuss fertility concerns with knowledgeable healthcare providers.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do intersex people go through puberty normally?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Puberty experiences vary widely among intersex people. Some go through typical puberty for their assigned gender, while others may experience:</p>
+                            <ul class="resources-list">
+                                <li>Delayed puberty</li>
+                                <li>Puberty that doesn't match their assigned gender</li>
+                                <li>Need for hormone therapy to induce puberty</li>
+                                <li>Mixed pubertal development (some characteristics of both typical male and female puberty)</li>
+                            </ul>
+                            <p>Support from knowledgeable healthcare providers during this time is important.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Are there specific health risks associated with intersex variations?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Some intersex variations are associated with specific health considerations that may need monitoring, such as:</p>
+                            <ul class="resources-list">
+                                <li>Hormone imbalances that require management</li>
+                                <li>Increased risk for certain types of tumors in specific variations</li>
+                                <li>Bone density concerns in some variations</li>
+                                <li>Cardiovascular issues associated with certain chromosomal variations</li>
+                            </ul>
+                            <p>Regular check-ups with knowledgeable providers can help manage any health risks.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-category">
+                    <h3>Psychosocial Aspects</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How can parents support an intersex child?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Parents can support their intersex child by:</p>
+                            <ul class="resources-list">
+                                <li>Seeking information from reliable sources and intersex-led organizations</li>
+                                <li>Connecting with other families with intersex children</li>
+                                <li>Respecting their child's privacy and bodily autonomy</li>
+                                <li>Delaying non-essential medical procedures until the child can participate in decisions</li>
+                                <li>Using accurate, affirming language when discussing their child's body</li>
+                                <li>Loving and accepting their child for who they are</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What mental health support is available for intersex people?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Mental health support is an important part of care for many intersex people and their families. This may include:</p>
+                            <ul class="resources-list">
+                                <li>Therapy with providers knowledgeable about intersex issues</li>
+                                <li>Peer support groups and community connections</li>
+                                <li>Family counseling to help navigate medical decisions and disclosure</li>
+                                <li>Support for dealing with stigma, discrimination, or medical trauma</li>
+                            </ul>
+                            <p>Many intersex people find connection with the intersex community particularly valuable.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>When and how should parents talk to their child about being intersex?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Open, honest communication from an early age is generally recommended. Approaches include:</p>
+                            <ul class="resources-list">
+                                <li>Using age-appropriate language</li>
+                                <li>Normalizing bodily diversity</li>
+                                <li>Answering questions honestly as they arise</li>
+                                <li>Providing more detailed information as the child grows older</li>
+                                <li>Emphasizing that being intersex is a natural variation, not something to be ashamed of</li>
+                            </ul>
+                            <p>Many families find it helpful to work with counselors or connect with other families who have navigated these conversations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title">Additional Resources</h2>
+            
+            <div class="resources-list">
+                <li><a href="#">Finding Intersex-Affirming Healthcare Providers</a> - Guide to locating respectful medical care</li>
+                <li><a href="#">Consent in Medical Treatment</a> - Information about your rights regarding medical procedures</li>
+                <li><a href="#">Intersex Organizations & Support Groups</a> - Connect with community and advocacy organizations</li>
+                <li><a href="#">Legal Rights for Intersex People</a> - Understanding your legal protections</li>
+                <li><a href="#">Mental Health Resources</a> - Finding affirming mental health support</li>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Intersex Connect</h3>
+                    <p>Providing resources, support, and community for intersex individuals and their allies.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../Main_features/index.html">Home</a></li>
+                        <li><a href="../Main_features/about.html">About Us</a></li>
+                        <li><a href="../Main_features/stories.html">Stories</a></li>
+                        <li><a href="../Main_features/resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="../Main_features/community.html">Community</a></li>
+                        <li><a href="../resources_mental_health/mentalheath.html">Mental-health</a></li>
+                        <li><a href="../resources_legal_rights/LegalRight.html">Legal Rights</a></li>
+                        <li><a href="../Main_features/about.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Intersex Connect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').classList.remove('active');
+                    }
+                });
+                
+                // Toggle current FAQ item
+                faqItem.classList.toggle('active');
+                answer.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

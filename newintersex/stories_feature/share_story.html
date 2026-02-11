@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Your Story</title>
+    <link rel="stylesheet" href="../styling_snippets/share_story.css">
+</head>
+<body>
+    <h1>Share Your Story</h1>
+    
+    <form action="#" method="post">
+        <h2>Story Details</h2>
+        
+        <div>
+            <label for="title">Story Title:</label><br>
+            <input type="text" id="title" name="title" required>
+        </div>
+        
+        <div>
+            <label for="author">Your Name (or leave blank for anonymous):</label><br>
+            <input type="text" id="author" name="author">
+        </div>
+        
+        <div>
+            <label for="email">Email (optional):</label><br>
+            <input type="email" id="email" name="email">
+        </div>
+        
+        <div>
+            <label for="content">Your Story:</label><br>
+            <textarea id="content" name="content" rows="10" cols="50" required></textarea>
+        </div>
+        
+        <h3>Topics (select all that apply)</h3>
+        <div>
+            <input type="checkbox" id="health" name="topics" value="health">
+            <label for="health">Healthcare experiences</label>
+        </div>
+        
+        <div>
+            <input type="checkbox" id="identity" name="topics" value="identity">
+            <label for="identity">Identity journey</label>
+        </div>
+        
+        <div>
+            <input type="checkbox" id="discrimination" name="topics" value="discrimination">
+            <label for="discrimination">Discrimination</label>
+        </div>
+        
+        <div>
+            <input type="checkbox" id="community" name="topics" value="community">
+            <label for="community">Finding community</label>
+        </div>
+        
+        <h3>Sharing Preferences</h3>
+        <div>
+            <label for="share">How may we share your story?</label><br>
+            <select id="share" name="share">
+                <option value="public">Public - Share with name</option>
+                <option value="anonymous" selected>Public - Share anonymously</option>
+                <option value="private">Private - Only share with support groups</option>
+            </select>
+        </div>
+        
+        <div>
+            <input type="checkbox" id="age" name="age" required>
+            <label for="age">I confirm that I am at least 18 years old</label>
+        </div>
+        
+        <div>
+            <input type="submit" value="Submit Your Story">
+        </div>
+    </form>
+</body>
+</html>

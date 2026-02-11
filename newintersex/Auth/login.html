@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intersex Support Hub - Login/Signup</title>
+    <link rel="stylesheet" href="../Auth/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="welcome-content">
+                <h1>Intersex Connect</h1>
+                <p>A safe space for sharing, learning, and community building</p>
+                <div class="features">
+                    <div class="feature">
+                        <span class="icon">💬</span>
+                        <span>Share your story anonymously</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">👥</span>
+                        <span>Connect with others</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">📚</span>
+                        <span>Access resources & support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-panel">
+            <div class="form-container">
+                <div class="form-toggle">
+                    <button class="toggle-btn active" id="login-toggle">Login</button>
+                    <button class="toggle-btn" id="signup-toggle">Sign Up</button>
+                </div>
+                
+                <form id="login-form" class="form active">
+                    <h2>Welcome back</h2>
+                    <div class="input-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" placeholder="Enter your email">
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password">
+                    </div>
+                    <div class="options">
+                        <label class="checkbox">
+                            <input type="checkbox" id="remember-me">
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                        <a href="../Auth/forgot_pass.html" class="forgot-link">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="submit-btn" onclick="window.location.href = '../Main_features/index.html';">Login</button>
+                    <div class="divider">
+                        <span>Or continue with</span>
+                    </div>
+                    <div class="social-login">
+                        <button type="button" class="social-btn google">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=" alt="Google">
+                            Google
+                        </button>
+                    </div>
+                </form>
+                
+                <form id="signup-form" class="form">
+                    <h2>Create an account</h2>
+                    <div class="input-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" placeholder="Enter your name">
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" placeholder="Enter your email">
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" placeholder="Create a password">
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-confirm">Confirm Password</label>
+                        <input type="password" id="signup-confirm" placeholder="Confirm your password">
+                    </div>
+                    <div class="options">
+                        <label class="checkbox">
+                            <input type="checkbox" id="terms">
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="submit-btn">Create Account</button>
+                    <div class="divider">
+                        <span>Or continue with</span>
+                    </div>
+                    <div class="social-buttons-row">
+                        <div class="social-login">
+                            <button type="button" class="social-btn google">
+                                <img src="../images/Google.png" alt="Google">
+                                Google
+                            </button>
+                        </div>
+                        <div class="social-login">
+                            <button type="button" class="social-btn apple">
+                                <img src="../images/app.jpg" alt="Apple">
+                                apple
+                            </button>
+                        </div>
+                    </div>
+                    
+                
+                
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginToggle = document.getElementById('login-toggle');
+            const signupToggle = document.getElementById('signup-toggle');
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            
+            loginToggle.addEventListener('click', function() {
+                loginToggle.classList.add('active');
+                signupToggle.classList.remove('active');
+                loginForm.classList.add('active');
+                signupForm.classList.remove('active');
+            });
+            
+            signupToggle.addEventListener('click', function() {
+                signupToggle.classList.add('active');
+                loginToggle.classList.remove('active');
+                signupForm.classList.add('active');
+                loginForm.classList.remove('active');
+            });
+              
+            // Form submission
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
